@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Amazon</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="/images/amazon-logo.png" alt="Retro Amazon Logo">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#deals">Deals</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#customer-service">Customer Service</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Banner -->
+        <div class="banner">
+            <div class="banner-gif">
+                <h1>🎉 Explore the Best Tech & Gadgets of the 90s! 🎉</h1>
+                <img src="/images/monkey.webp" alt="Monkey GIF" class="pixel-gif">
+            </div>
+            <marquee scrollamount="10" behavior="scroll" direction="left">
+                <img src="/images/banner.png" alt="Retro Amazon Deals Banner" class="banner-img">
+            </marquee>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+             <!-- Explore Categories Section -->
+             <section class="categories">
+                <h2>Shop by Category</h2>
+                <select id="category-select">
+                    <option value="books">Books</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="toys">Toys & Games</option>
+                    <option value="home">Home & Kitchen</option>
+                </select>
+            </section>
+
+            <!-- Official News Section -->
+            <section class="official-news">
+                <h2>What's New on Retro Amazon?</h2>
+                <ul>
+                    <li><a href="#">Discover 90s Top-Selling Books</a></li>
+                    <li><a href="#">Retro Gadgets Are Back in Stock!</a></li>
+                    <li><a href="#">Exclusive Deals: Save on CDs and DVDs</a></li>
+                    <li><a href="#">Holiday Gift Ideas for 1999</a></li>
+                </ul>
+            </section>
+
+            <!-- Featured Sites Section -->
+            <section class="featured-sites">
+                <h2>Featured Products</h2>
+                <div class="site-cards">
+                    <div class="card">
+                        <img src="/images/pxArt.png" alt="Classic Walkman">
+                        <a href="#">Classic Walkman</a>
+                    </div>
+                    <div class="card">
+                        <img src="/images/retro-tv.jpg" alt="Retro TV">
+                        <a href="#">Retro TV</a>
+                    </div>
+                    <div class="card">
+                        <img src="/images/arcade.png" alt="Arcade Console">
+                        <a href="#">Arcade Console</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Player's Poll Section -->
+            <section class="players-poll">
+                <h2>Customer Poll</h2>
+                <form method="post" action="/">
+                    <p>What is your favorite shopping category?</p>
+                    <label for="name"></label><br>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <label><input type="radio" name="poll" value="books"> Books</label><br>
+                    <label><input type="radio" name="poll" value="electronics"> Electronics</label><br>
+                    <label><input type="radio" name="poll" value="fashion"> Fashion</label><br>
+                    <label><input type="radio" name="poll" value="toys"> Toys & Games</label><br>
+                    <label><input type="radio" name="poll" value="home"> Home & Kitchen</label><br>
+                    <button type="submit">Vote</button>
+                </form>
+            </section>
+
+            <!-- Product Categories -->
+            <section class="detailed-categories">
+                <h2>Product Categories</h2>
+
+                <!-- Books Category -->
+                <div class="category" id="books">
+                    <h3>Books</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="/images/retro-handbook.webp" alt="The Retro Handbook">
+                            <h4>The Retro Handbook</h4>
+                            <p>A guide to living the 90s way!</p>
+                            <span class="price">  $9.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/gameboy-secrets.jpg" alt="Game Boy Secrets">
+                            <h4>Game Boy Secrets</h4>
+                            <p>Tips and tricks for the Game Boy classic.</p>
+                            <span class="price">$14.99</span><br>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/cookbook.jpg" alt="Cooking in the 90s">
+                            <h4>Cooking in the 90s</h4>
+                            <p>Classic recipes from the 90s.</p>
+                            <span class="price">$12.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/techguide.jpg" alt="90s Tech Guide">
+                            <h4>90s Tech Guide</h4>
+                            <p>A look back at 90s gadgets.</p>
+                            <span class="price">$19.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/arcade-legends.jpg" alt="Arcade Legends">
+                            <h4>Arcade Legends</h4>
+                            <p>Celebrating the best arcade games.</p>
+                            <span class="price">$8.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electronics Category -->
+                <div class="category" id="electronics">
+                    <h3>Electronics</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="/images/pxArt.png" alt="Walkman">
+                            <h4>Walkman</h4>
+                            <p>Classic cassette player for music lovers.</p>
+                            <span class="price">$29.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/retro-tv.jpg" alt="Retro TV">
+                            <h4>Retro TV</h4>
+                            <p>Old-school CRT television.</p>
+                            <span class="price">$199.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/vhs-player.jfif" alt="VHS Player">
+                            <h4>VHS Player</h4>
+                            <p>Play your favorite 90s movies.</p>
+                            <span class="price">$79.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/arcade.png" alt="Arcade Console">
+                            <h4>Arcade Console</h4>
+                            <p>Relive the arcade experience at home.</p>
+                            <span class="price">$149.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/alarm-clock.jfif" alt="90s Alarm Clock">
+                            <h4>90s Alarm Clock</h4>
+                            <p>Wake up like it’s 1999.</p>
+                            <span class="price">$19.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Fashion Category -->
+                <div class="category" id="fashion">
+                    <h3>Fashion</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="/images/denim.jfif" alt="denim-jacket">
+                            <h4>    Denim Jacket</h4>
+                            <p>Iconic 90s outerwear</p>
+                            <span class="price">$49.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/flannel-shirt.jfif" alt="Flannel Shirt">
+                            <h4>Flannel Shirt</h4>
+                            <p>Perfect for that grunge look.</p>
+                            <span class="price">$24.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/sneakers.jfif" alt="Retro Sneakers">
+                            <h4>Retro Sneakers</h4>
+                            <p>Step back in style.</p>
+                            <span class="price">$89.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/bracelets.jpg" alt="Slap Bracelets">
+                            <h4>Slap Bracelets</h4>
+                            <p>Fun and fashionable.</p>
+                            <span class="price">$5.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/buckethat.jfif" alt="Bucket Hat">
+                            <h4>Bucket Hat</h4>
+                            <p>Stay cool with this classic accessory.</p>
+                            <span class="price">$14.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toys & Games -->
+                <div class="category" id="toys">
+                    <h3>Toys & Games</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="/images/tamagotchi.jfif" alt="Tamagotchi">
+                            <h4> Tamagotchi</h4>
+                            <p>Your virtual pet companion.</p>
+                            <span class="price">$19.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/pogs.jfif" alt="Pogs">
+                            <h4>Pogs</h4>
+                            <p>Collect and play with these fun discs.</p>
+                            <span class="price">$9.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/action-figures.jfif" alt="Action Figures">
+                            <h4>Action Figures</h4>
+                            <p>Classic 90s heroes and villains.</p>
+                            <span class="price">$14.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/yoyy.jfif" alt="Yo-Yo">
+                            <h4>Yo-Yo</h4>
+                            <p>Master the coolest tricks.</p>
+                            <span class="price">$4.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/game boy.jpg" alt="Game Boy">
+                            <h4>Game Boy</h4>
+                            <p>Portable gaming at its finest.</p>
+                            <span class="price">$99.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home & Kitchen -->
+                <div class="category" id="home">
+                    <h3>Home & Kitchen</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="/images/lavalamp.jfif" alt="Lava Lamp">
+                            <h4> Lava Lamp</h4>
+                            <p>Bring some 90s glow to your room.</p>
+                            <span class="price">$29.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/bean-bag.jfif" alt="Bean Bag Chair">
+                            <h4>Bean Bag Chair</h4>
+                            <p>Ultimate comfort with a retro vibe.</p>
+                            <span class="price">$49.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/phone.jfif" alt="Cordless Phone">
+                            <h4>Cordless Phone</h4>
+                            <p>Stay connected 90s style.</p>
+                            <span class="price">$39.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/clock.jfif" alt="Retro Clock">
+                            <h4>Retro Clock</h4>
+                            <p>Add a retro touch to your decor.</p>
+                            <span class="price">$19.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="/images/neon-signs.jfif" alt="Neon Signs">
+                            <h4>Neon Signs</h4>
+                            <p>Light up your space with retro neon.</p>
+                            <span class="price">$59.99</span>
+                            <button>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Retro Amazon. All Rights Reserved.</p>
+            <p><a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+        </footer>
+    </div>
+
+    <script src="/AMAZON-RETRO/index.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>
