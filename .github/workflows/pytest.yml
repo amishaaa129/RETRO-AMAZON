@@ -1,0 +1,32 @@
+name: Python Tests
+
+on:
+  push:
+    branches: [ "main", "feature/*" ] # Added common feature branch pattern
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+
+    steps:
+    - uses: actions/checkout@v4 # Updated to v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5 # Updated to v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Install the required testing framework
+        pip install pytest
+
+    - name: Test with pytest
+      # Use python -m pytest for robustness
+      run: |
+        python -m pytest
