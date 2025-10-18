@@ -1,0 +1,44 @@
+name: Daily Automated Commit
+
+# 1. Use 'schedule' with 'cron' syntax to run once per day
+# This example is set to run daily at 02:30 AM UTC.
+# CRON format: minute hour day-of-month month day-of-week
+# You must pick a specific time, like '30 02' (2:30 AM).
+on:
+  schedule:
+    - cron: '30 02 * * *'
+
+jobs:
+  daily_update:
+    
+    # Use a stable runner environment
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository content
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Include a step with your email in its name
+      - name: Step named 24f3001339@ds.study.iitm.ac.in
+        run: |
+          echo "This step fulfills the naming requirement."
+
+      # Create a dummy file or update an existing one to generate a change
+      # We'll create a simple log file with the current timestamp.
+      - name: Generate daily update file
+        run: |
+          echo "Daily automated run at $(date)" >> daily_update_log.txt
+
+      # 3. Create a commit in each run
+      # This action handles the git configuration, adding, and committing
+      - name: Auto Commit daily_update_log.txt
+        uses: stefanprodan/git-auto-commit-action@v5
+        with:
+          # Set the commit message
+          commit_message: 'Automated Daily Update: $(date +%Y-%m-%d)'
+          # Specify files to commit (optional, defaults to all staged)
+          file_pattern: daily_update_log.txt
+          # Ensure the bot uses a distinct user/email for commits
+          commit_user: 'DevSync Automation Bot'
+          commit_author: 'DevSync Automation Bot <automation@devsync.com>'
