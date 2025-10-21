@@ -7,7 +7,8 @@ name: Daily Automated Commit
 on:
   schedule:
     - cron: '30 02 * * *'
-  # ADD THIS LINE to enable manual running from the GitHub UI
+  # ADDED: This enables the "Run workflow" button in the GitHub UI for manual runs.
+  workflow_dispatch:
 
 jobs:
   daily_update:
@@ -34,13 +35,13 @@ jobs:
       # 3. Create a commit in each run
       # This action handles the git configuration, adding, and committing
       - name: Auto Commit daily_update_log.txt
-            # CHANGE THIS LINE to use the correct and stable action reference
+        # CORRECTED: Using the stable 'stefanzweifel' action.
         uses: stefanzweifel/git-auto-commit-action@v5 
         with:
-            # Set the commit message
-            commit_message: 'Automated Daily Update: $(date +%Y-%m-%d)'
-            # Specify files to commit (optional, defaults to all staged)
-            file_pattern: daily_update_log.txt
-            # Ensure the bot uses a distinct user/email for commits
-            commit_user: 'DevSync Automation Bot'
-            commit_author: 'DevSync Automation Bot <automation@devsync.com>'
+          # Set the commit message
+          commit_message: 'Automated Daily Update: $(date +%Y-%m-%d)'
+          # Specify files to commit (optional, defaults to all staged)
+          file_pattern: daily_update_log.txt
+          # Ensure the bot uses a distinct user/email for commits
+          commit_user: 'DevSync Automation Bot'
+          commit_author: 'DevSync Automation Bot <automation@devsync.com>'
