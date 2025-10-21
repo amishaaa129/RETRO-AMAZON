@@ -1,17 +1,17 @@
 name: Daily Automated Commit
 
-# 1. Use 'schedule' with 'cron' syntax to run once per day
-# This example is set to run daily at 02:30 AM UTC.
-# CRON format: minute hour day-of-month month day-of-week
-# You must pick a specific time, like '30 02' (2:30 AM).
 on:
+  # 1. Schedule trigger: Runs daily at 02:30 AM UTC
   schedule:
     - cron: '30 02 * * *'
-  # ADDED: This enables the "Run workflow" button in the GitHub UI for manual runs.
+  # Enables manual trigger from the GitHub Actions UI
   workflow_dispatch:
 
 jobs:
   daily_update:
+    # **FIX**: Grants the job necessary permission to push commits back to the repository
+    permissions:
+      contents: write 
 
     # Use a stable runner environment
     runs-on: ubuntu-latest
@@ -21,27 +21,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Include a step with your email in its name
+      # 2. Required step name with email
       - name: Step named 24f3001339@ds.study.iitm.ac.in
         run: |
           echo "This step fulfills the naming requirement."
 
-      # Create a dummy file or update an existing one to generate a change
-      # We'll create a simple log file with the current timestamp.
+      # Create or append to the log file to ensure a change exists
       - name: Generate daily update file
         run: |
           echo "Daily automated run at $(date)" >> daily_update_log.txt
 
       # 3. Create a commit in each run
-      # This action handles the git configuration, adding, and committing
       - name: Auto Commit daily_update_log.txt
-        # CORRECTED: Using the stable 'stefanzweifel' action.
+        # **FIX**: Use the correct and stable action reference
         uses: stefanzweifel/git-auto-commit-action@v5 
         with:
-          # Set the commit message
+          # Set the commit message (required task)
           commit_message: 'Automated Daily Update: $(date +%Y-%m-%d)'
-          # Specify files to commit (optional, defaults to all staged)
+          # Specify files to commit
           file_pattern: daily_update_log.txt
-          # Ensure the bot uses a distinct user/email for commits
+          # Ensure the bot uses the required user/email format
           commit_user: 'DevSync Automation Bot'
           commit_author: 'DevSync Automation Bot <automation@devsync.com>'
