@@ -2,8 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import pg from "pg";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const { Pool } = pg;
 const app = express();
@@ -22,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get("/", (req,res) =>{
-
+  
 })
 
 app.post("/", async (req,res) =>{
@@ -34,11 +39,13 @@ app.post("/", async (req,res) =>{
             'INSERT INTO poll_votes (name, category) VALUES ($1, $2)',
             [name, selectedCategory]
         );
-        res.redirect('/');
+        res.redirect("/");
+       
     } catch (err) {
         console.error('Error inserting data into the database:', err);
         res.status(500).send('An error occurred');
     }
+   
     });
 
 app.listen(port);
