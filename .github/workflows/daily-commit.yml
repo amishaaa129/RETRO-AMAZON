@@ -3,7 +3,6 @@ name: Daily Automated Commit
 on:
   # 1. Schedule trigger: Runs daily at 02:30 AM UTC
   schedule:
-    # Use the cron expression '30 2 * * *'
     - cron: '30 2 * * *'
 
   # Enables manual trigger from the GitHub Actions UI
@@ -11,41 +10,36 @@ on:
 
 jobs:
   daily_update:
-    # FIX: Grants the job necessary permission to push commits back to the repository
+    # Grants permission to push commits
     permissions:
       contents: write
 
-    # Use a stable runner environment
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository content
+      # Checkout the latest version of the repo
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # ensures full history is available for pull
 
       # 2. Required step name with email
       - name: Step named 24f3001339@ds.study.iitm.ac.in
         run: |
           echo "This step fulfills the naming requirement."
 
-      # Create or append to the log file to ensure a change exists
+      # Create or append to a log file
       - name: Generate daily update file
         run: |
           echo "Daily automated run at $(date)" >> daily_update_log.txt
 
-      # 3. Create a commit in each run
+      # 3. Pull, Commit, and Push changes
       - name: Auto Commit daily_update_log.txt
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          # Set the commit message (required task)
           commit_message: "Automated Daily Update: $(date +'%Y-%m-%d')"
-
-          # Specify files to commit
           file_pattern: daily_update_log.txt
-
-          # 🌟 CRITICAL FIX: Pull the latest changes before pushing
-          pull_request_commit: true
-
-          # Ensure the bot uses the required user/email format
-          commit_user: "DevSync Automation Bot"
+          commit_user_name: "DevSync Automation Bot"
+          commit_user_email: "automation@devsync.com"
           commit_author: "DevSync Automation Bot <automation@devsync.com>"
+          push_options: '--force-with-lease'
